@@ -67,7 +67,7 @@ function wordel(again) {
 
       lives--;
 
-      if (guess.join('') == word.join('')) {
+      if (guess.join('') === word.join('')) {
         alert('Congrats!');
         lives = 0;
       } else if (lives === 0) {

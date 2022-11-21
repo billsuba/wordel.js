@@ -20,6 +20,7 @@ function wordel(again) {
 
     word = word.split('');
 
+    // makes sure it passes only if its a number that is greater than 0
     let lives = Number(prompt('How many lives do you want?'));
     if (lives <= 0) lives = 'redo';
 
@@ -33,6 +34,7 @@ function wordel(again) {
     let winOrLose = 'Play Again?';
 
     while (lives > 0) {
+      // makes sure it passes only if its five letters
       let guess = prompt('Guess a five letter word');
       if (/^[a-zA-Z]+$/.test(guess) === false) guess = 0;
 
@@ -42,20 +44,18 @@ function wordel(again) {
       }
       guess = guess.toLowerCase().split('');
 
-      guess.forEach(el => final[word.indexOf(el)] = el);
-
       let wrongPosition = [];
 
-      for (let i = 0; i < 5; i++) {
-        if (guess[i] === word[i]) {
-          final[i] = guess[i];
-        } else if (word.includes(guess[i])) {
+      guess.forEach((el, i) => {
+        if (el === word[i]) {
+          final[i] = el;
+        } else if (word.includes(el)) {
           final[i] = '*';
-          wrongPosition.push(guess[i]);
+          wrongPosition.push(el);
         } else {
           final[i] = '*';
         }
-      }
+      })
 
       let after = ` but ${wrongPosition} was in the wrong postion`;
       if (wrongPosition.length <= 0) {

@@ -21,8 +21,12 @@ function wordel(again) {
     word = word.split('');
 
     let lives = Number(prompt('How many lives do you want?'));
+    if (lives <= 0) lives = 'redo';
 
-    while (isNaN(lives)) lives = prompt('Please enter a valid number');
+    while (isNaN(lives)) {
+      lives = prompt('Please enter a valid number');
+      if (lives <= 0) lives = 'redo';
+    }
 
     let final = ['*', '*', '*', '*', '*'];
 
@@ -30,6 +34,7 @@ function wordel(again) {
 
     while (lives > 0) {
       let guess = prompt('Guess a five letter word');
+      if (/^[a-zA-Z]+$/.test(guess) === false) guess = 0;
 
       while (guess.length !== 5) {
         guess = prompt('Please enter five letters');
@@ -78,9 +83,3 @@ function wordel(again) {
 }
 
 wordel();
-
-// example input ('1About!.aboVe36.afteR') => result ['about', 'above', 'after']
-
-// let alphabeth = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-
-// console.log(prompt('Ctrl + Shift + V').toLowerCase().split('').filter(el => alphabeth.includes(el)).join('').match(/.{1,5}/g).sort());

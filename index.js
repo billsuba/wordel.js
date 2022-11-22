@@ -8,7 +8,7 @@ function wordel(again, arrOfWords) {
   if (again || confirm(`Would you like to play Wordel ${userName}?`)) {
     let wordOfTheDay = arrOfWords[Math.floor(Math.random() * arrOfWords.length)];
 
-    gameplay('happy'); // input a specific word for testing purposes
+    // gameplay('happy'); // input a specific word for testing purposes
     gameplay(wordOfTheDay);
     return;
   }
@@ -34,6 +34,7 @@ function wordel(again, arrOfWords) {
       guess = guess.toLowerCase().split('');
       lives--;
 
+      // checks if letters are in the word
       guess.forEach((el, i) => {
         if (el === word[i]) {
           final[i] = el;

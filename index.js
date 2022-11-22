@@ -9,11 +9,9 @@ function wordel(again, arrOfWords) {
     let wordOfTheDay = arrOfWords[Math.floor(Math.random() * arrOfWords.length)];
 
     // gameplay('happy'); // input a specific word for testing purposes
-    gameplay(wordOfTheDay);
-    return;
-  }
-  alert('Your loss');
-  return;
+    return gameplay(wordOfTheDay);
+  };
+  return alert('Your loss');
 
   function gameplay(word) {
     // console.log(word); // uncomment for hacks
@@ -40,8 +38,8 @@ function wordel(again, arrOfWords) {
           final[i] = el;
         } else if (word.includes(el)) {
           wrongPosition.push(el);
-        }
-      })
+        };
+      });
 
       let before = `You guessed ${final} right`;
       let after = ` but ${wrongPosition} was in the wrong postion`;
@@ -55,11 +53,11 @@ function wordel(again, arrOfWords) {
         winOrLose = 'Try Again?';
       } else {
         alert(`You have ${lives} lives left`);
-      }
+      };
     };
     again = true;
     confirm(`${winOrLose}`) ? wordel(again, arrOfWords) : alert('See you soon!');
-  }
-}
+  };
+};
 
 wordel(again, arr1);

@@ -8,7 +8,7 @@ function wordel(again, arrOfWords) {
   if (again || confirm(`Would you like to play Wordel ${userName}?`)) {
     let wordOfTheDay = arrOfWords[Math.floor(Math.random() * arrOfWords.length)];
 
-    // gameplay('happy'); // input a specific word for testing purposes
+    gameplay('happy'); // input a specific word for testing purposes
     gameplay(wordOfTheDay);
     return;
   }
@@ -18,21 +18,18 @@ function wordel(again, arrOfWords) {
   function gameplay(word) {
     // console.log(word); // uncomment for hacks
     word = word.split('');
+    let winOrLose = 'Play Again?';
 
     // makes sure it passes only if its a number that is greater than 0
     let lives = prompt('How many lives do you want?');
-
     while (isNaN(lives) || lives <= 0) lives = prompt('Please enter a valid number');
-
-    let final = ['*', '*', '*', '*', '*'];
-    let winOrLose = 'Play Again?';
 
     while (lives > 0) {
       // makes sure it passes only if its five letters
       let guess = prompt('Guess a five letter word');
-
       while (guess.length !== 5 || (/^[a-zA-Z]+$/.test(guess) === false)) guess = prompt('Please enter five letters');
 
+      let final = ['*', '*', '*', '*', '*'];
       let wrongPosition = [];
       guess = guess.toLowerCase().split('');
       lives--;
@@ -41,19 +38,13 @@ function wordel(again, arrOfWords) {
         if (el === word[i]) {
           final[i] = el;
         } else if (word.includes(el)) {
-          final[i] = '*';
           wrongPosition.push(el);
-        } else {
-          final[i] = '*';
         }
       })
 
+      let before = `You guessed ${final} right`;
       let after = ` but ${wrongPosition} was in the wrong postion`;
-      if (wrongPosition.length === 0) {
-        alert(`You guessed ${final} right`);
-      } else {
-        alert(`You guessed ${final} right${after}`);
-      }
+      wrongPosition.length === 0 ? alert(before) : alert(`${before}${after}`);
 
       if (guess.join('') === word.join('')) {
         alert('Congrats!');

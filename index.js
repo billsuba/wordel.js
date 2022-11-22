@@ -16,7 +16,7 @@ function wordel(again, arrOfWords) {
   return;
 
   function gameplay(word) {
-    console.log(word); // uncomment for hacks
+    // console.log(word); // uncomment for hacks
     word = word.split('');
 
     // makes sure it passes only if its a number that is greater than 0

@@ -34,7 +34,7 @@ function wordel(again, arrOfWords) {
       guess = guess.toLowerCase().split('');
       lives--;
 
-      // checks if letters are in the word
+      // checks if letters are in word
       guess.forEach((el, i) => {
         if (el === word[i]) {
           final[i] = el;

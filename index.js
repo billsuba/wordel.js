@@ -21,7 +21,7 @@ function wordel(again) {
     word = word.split('');
 
     // makes sure it passes only if its a number that is greater than 0
-    let lives = Number(prompt('How many lives do you want?'));
+    let lives = prompt('How many lives do you want?');
     if (lives <= 0) lives = 'redo';
 
     while (isNaN(lives)) {

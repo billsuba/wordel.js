@@ -1,5 +1,5 @@
 // array of possible words to guess
-let arr1 = ['about', 'above', 'after', 'again', 'along', 'among', 'asked', 'based', 'began', 'being', 'black', 'cases', 'cause', 'child', 'class', 'clear', 'could', 'court', 'death', 'early', 'every', 'field', 'first', 'force', 'found', 'given', 'going', 'great', 'group', 'heart', 'house', 'human', 'known', 'large', 'later', 'least', 'level', 'light', 'local', 'major', 'means', 'might', 'model', 'money', 'never', 'night', 'north', 'often', 'order', 'other', 'party', 'place', 'point', 'power', 'press', 'quite', 'right', 'seems', 'sense', 'shall', 'short', 'shown', 'since', 'small', 'south', 'state', 'still', 'study', 'table', 'taken', 'terms', 'their', 'there', 'these', 'thing', 'think', 'third', 'those', 'three', 'times', 'total', 'trade', 'under', 'until', 'using', 'value', 'water', 'where', 'which', 'while', 'white', 'whole', 'whose', 'woman', 'women', 'words', 'world', 'would', 'years', 'young'];
+const arr1 = ['about', 'above', 'after', 'again', 'along', 'among', 'asked', 'based', 'began', 'being', 'black', 'cases', 'cause', 'child', 'class', 'clear', 'could', 'court', 'death', 'early', 'every', 'field', 'first', 'force', 'found', 'given', 'going', 'great', 'group', 'heart', 'house', 'human', 'known', 'large', 'later', 'least', 'level', 'light', 'local', 'major', 'means', 'might', 'model', 'money', 'never', 'night', 'north', 'often', 'order', 'other', 'party', 'place', 'point', 'power', 'press', 'quite', 'right', 'seems', 'sense', 'shall', 'short', 'shown', 'since', 'small', 'south', 'state', 'still', 'study', 'table', 'taken', 'terms', 'their', 'there', 'these', 'thing', 'think', 'third', 'those', 'three', 'times', 'total', 'trade', 'under', 'until', 'using', 'value', 'water', 'where', 'which', 'while', 'white', 'whole', 'whose', 'woman', 'women', 'words', 'world', 'would', 'years', 'young'];
 
 function gameplay(arrOfWords) {
   let word = arrOfWords[Math.floor(Math.random() * arrOfWords.length)];
@@ -17,8 +17,8 @@ function gameplay(arrOfWords) {
     let guess = prompt('Guess a five letter word');
     while (guess.length !== 5 || (/^[a-zA-Z]+$/.test(guess) === false)) guess = prompt('Please enter five letters');
 
-    let final = ['*', '*', '*', '*', '*'];
-    let wrongPosition = [];
+    const final = ['*', '*', '*', '*', '*'];
+    const wrongPosition = [];
     guess = guess.toLowerCase().split('');
     lives--;
 
@@ -31,8 +31,8 @@ function gameplay(arrOfWords) {
       };
     });
 
-    let before = `You guessed ${final} right`;
-    let after = ` but ${wrongPosition} was in the wrong postion`;
+    const before = `You guessed ${final} right`;
+    const after = ` but ${wrongPosition} was in the wrong postion`;
     wrongPosition.length === 0 ? alert(before) : alert(`${before}${after}`);
 
     if (guess.join('') === word.join('')) {

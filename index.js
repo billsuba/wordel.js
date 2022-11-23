@@ -44,7 +44,6 @@ function gameplay(arrOfWords) {
       alert(`You have ${lives} lives left`);
     };
   };
-  again = true;
   confirm(`${winOrLose}`) ? gameplay(arr1) : alert('See you soon!');
 };
 gameplay(arr1);

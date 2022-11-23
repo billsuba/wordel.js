@@ -30,7 +30,6 @@ function gameplay(arrOfWords) {
         wrongPosition.push(el);
       };
     });
-
     const before = `You guessed ${final} right`;
     const after = ` but ${wrongPosition} was in the wrong postion`;
     wrongPosition.length === 0 ? alert(before) : alert(`${before}${after}`);
@@ -48,5 +47,4 @@ function gameplay(arrOfWords) {
   again = true;
   confirm(`${winOrLose}`) ? gameplay(arr1) : alert('See you soon!');
 };
-
 gameplay(arr1);
